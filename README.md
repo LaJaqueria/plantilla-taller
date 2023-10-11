@@ -36,8 +36,11 @@ Esta plantilla está pensada para ser usada en un repositorio, aunque la puedes 
 8. Crea el entorno virtual e instala todas sus dependencias con 
 
 ```bash
+# Crear el entorno virtual
 python -m venv env
+# Activar el entorno virtual
 source env/bin/activate
+# Instalar las dependencias
 pip install -r requirements.txt
 ```
 
@@ -52,6 +55,7 @@ Para poder ver el taller en local como si estuviera en Internet, es necesario qu
 ```bash
 # Activar el entorno virtual
 source env/bin/activate
+# Correr el servidor
 mkdocs serve
 ```
 
