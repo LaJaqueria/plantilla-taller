@@ -6,13 +6,12 @@ authors = [
     {name = "La Jaqueria", email = "lajaqueria@gmail.com"},
 ]
 dependencies = [
-    "mkdocs",
-    "mkdocs-material",
-    "pygments",
-    "pymdown-extensions",
-    "mkdocs-minify-plugin",
+    "mkdocs=1.5.3",
+    "mkdocs-material=9.4.5",
+    "mkdocs-minify-plugin=0.7.1",
+    "mkdocs-glightbox=0.3.4",
 ]
-requires-python = ">=3"
+requires-python = ">=3.8"
 readme = "README.md"
 license = {text = "MIT"}
 
@@ -21,11 +20,6 @@ license = {text = "MIT"}
 name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
-
-[tool.pdm.dev-dependencies]
-dev = [
-    "pipenv-to-requirements",
-]
 
 [build-system]
 requires = ["pdm-backend"]
