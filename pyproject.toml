@@ -1,0 +1,32 @@
+[project]
+name = "plantilla-taller"
+version = "1.0.0"
+description = "Esto es una plantilla de La Jaqueria para poder crear tu propio taller o recurso facilmente"
+authors = [
+    {name = "La Jaqueria", email = "lajaqueria@gmail.com"},
+]
+dependencies = [
+    "mkdocs",
+    "mkdocs-material",
+    "pygments",
+    "pymdown-extensions",
+    "mkdocs-minify-plugin",
+]
+requires-python = ">=3"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.pdm]
+[[tool.pdm.source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "pipenv-to-requirements",
+]
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
