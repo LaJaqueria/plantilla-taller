@@ -8,7 +8,6 @@ Esta es una plantilla para usar en los talleres de [La Jaquería](https://lajaqu
 
 1. Tienes que tener [Python 3](https://www.python.org/downloads/) instalado.
 2. Tienes que instalar [PIP](https://pip.pypa.io/en/stable/installing/), el gestor de paquetes de Python.
-3. Instalar [Pipenv](https://pipenv-es.readthedocs.io/es/latest/) -> `pip install pipenv`.
 
 Es altamente recomendado que uses un editor de texto tipo [Visual Studio Code](https://code.visualstudio.com/) / [Visual Studio Codium](https://vscodium.com/), [Atom](https://atom.io/), o similares para trabajar. Para esta plantilla se recomienda usar [VSCode](https://github.com/Microsoft/vscode/) o [VSCodium](https://github.com/VSCodium/vscodium) con las siguientes extensiones instaladas:
 
@@ -34,7 +33,13 @@ Esta plantilla está pensada para ser usada en un repositorio, aunque la puedes 
       * Fichero `LICENSE` (si no quieres que tu taller tenga licencia MIT, cambia su contenido, pero por favor, ponle licencia a tu taller).
       * Es **importante que** la carpeta `.git` **no la copies** bajo ningún concepto.
 7. Abre una terminal en la carpeta de tu taller.
-8. Crea el entorno virtual e instala todas sus dependencias con `pipenv install`.
+8. Crea el entorno virtual e instala todas sus dependencias con 
+
+```bash
+python -m venv env
+source env/bin/activate
+pip install -r requirements.txt
+```
 
 Ahora tendrás preparado tu equipo para poder trabajar con la plantilla.
 
@@ -45,7 +50,9 @@ Ahora tendrás preparado tu equipo para poder trabajar con la plantilla.
 Para poder ver el taller en local como si estuviera en Internet, es necesario que levantes su servidor de pruebas. Es tan sencillo como desde la terminal en la carpeta de tu taller hagas
 
 ```bash
-pipenv run mkdocs serve
+# Activar el entorno virtual
+source env/bin/activate
+mkdocs serve
 ```
 
 Ahora en tu navegador podrás ver como va quedando tu taller en la web [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
