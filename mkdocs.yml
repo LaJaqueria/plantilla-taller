@@ -9,20 +9,28 @@ repo_name: crisconru/plantilla-taller # TODO:
 repo_url: https://github.com/crisconru/plantilla-taller # TODO:
 edit_uri: ""
 
-# 3. Copyright
-copyright: Copyright &copy; 2019 - 2020 Cristóbal Contreras # TODO:
-
-# 4. RRSS
+# 3. Footer
+copyright: Copyright &copy; 2019 - 2023 La Jaquería # TODO:
 extra:
+  # Footer - No poner que está hecho con MkDocs
+  generator: false
+  # Footer - Iconos
   social:
-    - type: github
+    # Blog
+    # Github
+    - icon: fontawesome/brands/github
       link: https://github.com/LaJaqueria # TODO:
-    - type: twitter
+      name: Github de La Jaquería # TODO:
+    # Twitter
+    - icon: fontawesome/brands/twitter
       link: https://twitter.com/lajaqueria # TODO:
-    - type: linkedin
+      name: Twitter de La JAquería # TODO:
+    # Linkedin
+    - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/lajaqueria/ # TODO:
+      name: Linkedin de La Jaquería # TODO:
 
-# 5. Navegación
+# 4. Navegación
 nav:
   # Modelo para empezar: Intro, Info del autor y la instalación
   - Introducción: index.md # TODO:
@@ -40,71 +48,116 @@ nav:
     - Markdown: ayuda/markdown.md # TODO:
     - Material Design: ayuda/material.md # TODO:
 
-# 6. Google Analytics
+# 5. Google Analytics
 #google_analytics:
 #  - !!python/object/apply:os.getenv ["GOOGLE_ANALYTICS_KEY"]
 #  - auto
 
-# 7. Configuración del tema
+# 6. Configuración del tema
 theme:
   name: material
   # Color - Fuentes - Lenguaje
   palette:
-    primary: blue grey # TODO:
-    accent: red # TODO:
+    # Light Mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/toggle-switch
+        name: Modo Oscuro
+      primary: blue grey # TODO:
+      accent: red # TODO:
+    # Dark Mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Modo Claro
+      primary: blue grey # TODO:
+      accent: red # TODO:
+  # Fuente
   font:
-    text: Roboto #TODO:
-    code: Roboto Mono # TODO:
+    text: Roboto
+    code: Roboto Mono
+  # Lenguage
+  language: es
   logo: img/favicon.png #TODO:
   favicon: img/favicon.png # TODO:
-  language: es
-  # Página 404
-  static_templates:
-    - 404.html
-  # No incluir los JavaScript de MkDocs
-  #include_search_page: false
-  #search_index_only: true
+  # Caracteristicas especiales
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    # Experimental
+    - search.suggest
+    - search.highlight
+    - search.share
+  # Icono del repo
+  icon:
+    repo: fontawesome/brands/github
 
-# 8. Extensiones
+# 7. Extensiones
 markdown_extensions:
-  - markdown.extensions.admonition
-  - markdown.extensions.codehilite:
-      linenums: true
-      # guess_lang: false
-  - markdown.extensions.def_list
-  - markdown.extensions.footnotes
-  - markdown.extensions.meta
-  - markdown.extensions.toc:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
       permalink: true
-  - pymdownx.arithmatex
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.betterem:
       smart_enable: all
   - pymdownx.caret
   - pymdownx.critic
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      linenums: true
+      linenums_style: pymdownx-inline
   - pymdownx.inlinehilite
   - pymdownx.keys
-  - pymdownx.magiclink:
-      repo_url_shorthand: true
-      user: squidfunk
-      repo: mkdocs-material
   - pymdownx.mark
   - pymdownx.smartsymbols
+  - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
 
-# 9. Necesario para la extensión pydownx.arithmatex
+# 8. Necesario para la extensión pydownx.arithmatex
 extra_javascript:
-  # Este fichero es opcional y solo si se quiere sobreescribir la configuracion del plugin
-  #- js/extra.js
-  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
+  - plugins/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
-# 10. Plugins
+# 9. Plugins
 plugins:
-  - search
-  - minify:
-      minify_html: true
+  - search:
+      lang: es
+      separator: '[\s\-,:!=\[\]()"/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: "100%"
+      height: auto
+      zoomable: true
+      draggable: true
+      auto_caption: false
+      caption_position: bottom
